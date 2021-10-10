@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap')
+//font-family: 'Poppins', sans-serif
+//Headings
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap')
+//font-family: 'Open Sans', sans-serif
+//Body
+
+$violet: hsl(257, 40%, 49%)
+$soft-magenta: hsl(300, 69%, 71%)
+
+*, *::before, *::after
+    box-sizing: border-box
+
+body
+    margin: 0
+    padding: 0
+    min-height: 100vh
+    background: url(./images/bg-desktop.svg), $violet
+    overflow: hidden
+    main
+        height: 100%
+        width: 90%
+        margin: 0 4rem
+        .container
+            height: 100%
+            width: 100%
+            display: grid
+            grid-template-rows: 77px 475px 77px
+            grid-template-areas: "header" "body" "footer"
+            .header
+                grid-area: "header"
+                img
+                    height: 2.5rem
+                    margin: 2rem 0 2rem 0
+            .body
+                grid-area: "body"
+                display: flex
+                align-items: center
+                justify-content: space-between
+                max-width: 1200px
+                .image
+                    img 
+                        height: 375px
+                .text
+                    max-width: 450px
+                    margin-left: 1rem
+                    font-family: 'Poppins', sans-serif
+                    font-weight: 700
+                    color: white
+                    p
+                        font-family: 'Open Sans', sans-serif
+                        font-weight: 400
+                    .button
+                        font-family: 'Poppins', sans-serif
+                        font-weight: 400
+                        font-size: 1.1rem
+                        color: $violet
+                        padding: .8rem 8ch
+                        border-radius: 2rem
+                        border: none
+                        box-shadow: 11px 11px 35px -9px rgba(0, 0, 0, .9)
+                        transition: background 300ms ease-out, color 300ms ease-out, transform 100ms linear
+                        cursor: pointer
+                        &:hover
+                            background: $soft-magenta
+                            color: white
+                        &:active
+                            transform: scale(.95)
+                        
+
+            .footer
+                grid-area: "footer"
+                max-width: 1200px
+                .icons
+                    display: flex
+                    list-style: none
+                    justify-content: flex-end
+                    li
+                        margin: 0 1rem
+                        .fab
+                            font-size: 1.5rem
+                            color: white
+                            transition: color 200ms ease-out
+                            cursor: pointer
+                            &:hover
+                                color: darken($soft-magenta, 15%)
+
+    .attribution 
+        position: relative
+        font-size: 14px
+        text-align: center
+        font-family: 'Poppins', sans-serif
+        font-weight: 700
+        color: white
+        bottom: 1rem
+        a
+            color: darken($violet, 50%)
+            text-decoration: none   
+            transition: color 300ms ease-out
+            &:hover
+                color: darken($violet, 30%)
+            &:active
+                font-weight: 500
+    
+@media (max-width: 875px)
+    body
+        overflow-y: visible
+        overflow-x: hidden
+        background: url(./images/bg-mobile.svg) no-repeat cover center, $violet
+        
+        main
+            .container
+                grid-template-rows: 100px auto 100px
+                .body
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    .text
+                        h1
+                            text-align: center
+                        p
+                            text-align: center
+                        .button-container
+                            width: 100%
+                            display: flex
+                            justify-content: center
+                .footer
+                    .icons
+                        justify-content: center
+
+@media (max-width: 600px)
+    body
+        main
+            .container
+                .body
+                    img
+                        width: 375px
+                    .text
+                        max-width: 375px
